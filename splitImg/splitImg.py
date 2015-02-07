@@ -32,6 +32,19 @@ def Split(im):
 if __name__=='__main__':
     im = Image.open(sys.argv[1])
     num = 1
+    iro = "s"
     for ig in Split(im):
-        ig.save("result/%d.png"%num, "PNG")
+        ig.save("result/%d%s.png"%(num, iro), "PNG")
+        if num == 9:
+            num = 0
+            if iro == "s":
+                iro = "p"
+            elif iro == "p":
+                iro = "m"
+            elif iro == "m":
+                iro = "z"
+            elif iro == "z":
+                iro = "o"
+            else :
+                iro = "ho"
         num += 1
